@@ -22,7 +22,11 @@ export default class Signup extends React.Component {
         password
       },
       err => {
-        console.log('Signup callback', err);
+        if (err) {
+          this.setState({ error: err.reason });
+        } else {
+          this.setState({ error: '' });
+        }
       }
     );
 
