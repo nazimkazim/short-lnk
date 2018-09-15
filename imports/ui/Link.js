@@ -1,6 +1,7 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 import { Accounts } from 'meteor/accounts-base';
+import { Meteor } from 'meteor/meteor';
 
 import { Links } from '../api/links';
 import LinkList from './LinksList';
@@ -16,7 +17,7 @@ export default class Link extends React.Component {
     e.preventDefault();
 
     if (url) {
-      Links.insert({ url });
+      Meteor.call('links.insert', url);
       this.refs.url.value = '';
     }
   }
