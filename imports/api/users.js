@@ -7,15 +7,12 @@ Accounts.validateNewUser(user => {
 
   console.log('this is a user', user);
 
-  try {
-    new SimpleSchema({
-      email: {
-        type: String,
-        regEx: SimpleSchema.RegEx.Email
-      }
-    }).validate({ email });
-  } catch (e) {
-    throw new Meteor.Error(400, e.message);
-  }
+  new SimpleSchema({
+    email: {
+      type: String,
+      regEx: SimpleSchema.RegEx.Email
+    }
+  }).validate({ email });
+
   return true;
 });

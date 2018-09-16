@@ -13,8 +13,8 @@ export default class Signup extends React.Component {
   onSubmit(e) {
     e.preventDefault();
 
-    let email = this.refs.email.value;
-    let password = this.refs.password.value;
+    let email = this.refs.email.value.trim();
+    let password = this.refs.password.value.trim();
 
     if (password.length < 9) {
       return this.setState({
