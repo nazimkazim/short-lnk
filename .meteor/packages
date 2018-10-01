@@ -19,3 +19,8 @@ shell-server@0.3.1            # Server-side component of the `meteor shell` comm
 static-html
 accounts-password
 session
+fourseven:scss@=4.5.4
+ostrio:files
+react-meteor-data
+aldeed:collection2
+johnantoni:meteor-normalize

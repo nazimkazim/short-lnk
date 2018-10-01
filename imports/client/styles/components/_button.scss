@@ -1,0 +1,30 @@
+.button {
+  background-color: $button-bg;
+  border: none;
+  color: $button-color;
+  cursor: pointer;
+  padding: $input-spacing;
+  text-transform: uppercase;
+  margin-bottom: $space;
+  line-height: 1.2;
+
+  &--link {
+    display: inline-block;
+    text-decoration: none;
+    &-text {
+      background: none;
+      padding: 0;
+      margin: 0;
+      text-decoration: underline;
+      text-transform: none;
+    }
+  }
+
+  &--pill {
+    display: inline-grid;
+    background-color: transparent;
+    border: 1px solid $button-pill-color;
+    color: $button-pill-color;
+    padding: 0.3rem 0.8rem;
+  }
+}
