@@ -9,10 +9,12 @@ export default () => {
   return (
     <div>
       <PrivateHeader title="Your links" />
-      <LinksListFilters />
-      <AddLink />
-      {/* <FileUpload /> */}
-      <LinkList />
+      <div className="page-content">
+        <LinksListFilters />
+        <AddLink />
+        {/* <FileUpload /> */}
+        <LinkList />
+      </div>
     </div>
   );
 };
