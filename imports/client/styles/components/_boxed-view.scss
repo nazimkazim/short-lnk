@@ -17,4 +17,13 @@
     display: flex;
     flex-direction: column;
   }
+
+  &--modal {
+    background-color: fade-out($color: $boxed-view-overlay-bg, $amount: 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
