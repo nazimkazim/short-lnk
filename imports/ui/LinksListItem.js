@@ -41,25 +41,15 @@ export default class LinksListItem extends React.Component {
     }
 
     return (
-      <p className="item__message">
-        {this.props.visitedCount} {visitMessage} {visitedMessage}
-      </p>
+      <p className="item__message">{this.props.phrase.length} characters</p>
     );
   }
   render() {
     return (
       <div className="item">
-        <h2>{this.props.url}</h2>
-        <p className="item__message">{this.props.shortUrl}</p>
+        <h2>{this.props.phrase}</h2>
+        <p className="item__message">Author:</p>
         {this.renderStats()}
-
-        <a
-          className="button button--pill button--link"
-          href={this.props.shortUrl}
-          target="_blank"
-        >
-          Visit
-        </a>
         <button
           className="button button--pill"
           ref="copy"
@@ -77,7 +67,7 @@ export default class LinksListItem extends React.Component {
             );
           }}
         >
-          {this.props.visible ? 'hide' : 'unhide'}
+          {this.props.visible ? 'outdate' : 'outdated'}
         </button>
       </div>
     );
@@ -86,7 +76,7 @@ export default class LinksListItem extends React.Component {
 
 LinksListItem.propTypes = {
   _id: React.PropTypes.string.isRequired,
-  url: React.PropTypes.string.isRequired,
+  phrase: React.PropTypes.string.isRequired,
   userId: React.PropTypes.string.isRequired,
   visible: React.PropTypes.bool.isRequired,
   shortUrl: React.PropTypes.string.isRequired,

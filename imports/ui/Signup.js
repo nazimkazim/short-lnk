@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import { Accounts } from 'meteor/accounts-base';
 
 export default class Signup extends React.Component {
@@ -15,6 +14,7 @@ export default class Signup extends React.Component {
 
     let email = this.refs.email.value.trim();
     let password = this.refs.password.value.trim();
+    let userName = this.refs.userName.value.trim();
 
     if (password.length < 9) {
       return this.setState({
@@ -25,7 +25,8 @@ export default class Signup extends React.Component {
     Accounts.createUser(
       {
         email,
-        password
+        password,
+        userName
       },
       err => {
         if (err) {
@@ -45,7 +46,7 @@ export default class Signup extends React.Component {
     return (
       <div className="boxed-view">
         <div className="boxed-view__box">
-          <p>Signup component</p>
+          <p>Sign up</p>
           {this.state.error ? <p>{this.state.error}</p> : undefined}
           <form
             onSubmit={this.onSubmit.bind(this)}
@@ -54,12 +55,18 @@ export default class Signup extends React.Component {
           >
             <input type="email" ref="email" name="email" placeholder="Email" />
             <input
+              type="text"
+              ref="userName"
+              name="userName"
+              placeholder="Name"
+            />
+            <input
               type="password"
               ref="password"
               name="password"
               placeholder="password"
             />
-            <button>Create account</button>
+            <button className="button">Create account</button>
           </form>
         </div>
       </div>

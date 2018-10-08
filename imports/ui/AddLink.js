@@ -6,33 +6,35 @@ export default class AddLink extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: '',
+      phrase: '',
       isOpen: false,
       error: ''
     };
   }
   onSubmit(e) {
-    const { url } = this.state;
+    const { phrase } = this.state;
 
     e.preventDefault();
 
-    Meteor.call('links.insert', url, (err, res) => {
+    Meteor.call('links.insert', phrase, (err, res) => {
       if (!err) {
         this.handleModalClose();
       } else {
-        this.setState({ error: 'Your link must be a valid URL' });
+        this.setState({
+          error: 'Your thought should be between 5 and 15 characters'
+        });
       }
     });
   }
 
   onChange(e) {
     this.setState({
-      url: e.target.value
+      phrase: e.target.value
     });
   }
 
   handleModalClose() {
-    this.setState({ isOpen: false, url: '', error: '' });
+    this.setState({ isOpen: false, phrase: '', error: '' });
   }
   render() {
     return (
@@ -43,7 +45,7 @@ export default class AddLink extends React.Component {
             this.setState({ isOpen: true });
           }}
         >
-          + Add Link
+          + Add Thought
         </button>
         <Modal
           isOpen={this.state.isOpen}
@@ -53,20 +55,20 @@ export default class AddLink extends React.Component {
           className="boxed-view__box"
           overlayClassName="boxed-view boxed-view--modal"
         >
-          <h1>Add Link</h1>
+          <h1>Add Your Thought</h1>
           {this.state.error ? <p>{this.state.error}</p> : undefined}
           <form
             onSubmit={this.onSubmit.bind(this)}
             className="boxed-view__form"
           >
-            <input
+            <textarea
               type="text"
-              placeholder="URL"
+              placeholder="Write what you think"
               ref="url"
               value={this.state.url}
               onChange={this.onChange.bind(this)}
             />
-            <button className="button">Add Link</button>
+            <button className="button">Add Thought</button>
             <button
               onClick={this.handleModalClose.bind(this)}
               className="button"

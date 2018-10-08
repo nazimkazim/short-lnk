@@ -33,7 +33,7 @@ export default class LinksListFilters extends React.Component {
               Session.set('showVisible', !e.target.checked);
             }}
           />
-          show hidden links
+          show outdated thoughts
         </label>
       </div>
     );
