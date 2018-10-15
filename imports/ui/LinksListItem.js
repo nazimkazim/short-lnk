@@ -45,6 +45,7 @@ export default class LinksListItem extends React.Component {
     );
   }
   render() {
+    //console.log(this.props.users.profiles.FirstName);
     return (
       <div className="item">
         <h2>{this.props.phrase}</h2>
@@ -53,7 +54,7 @@ export default class LinksListItem extends React.Component {
         <button
           className="button button--pill"
           ref="copy"
-          data-clipboard-text={this.props.shortUrl}
+          data-clipboard-text={this.props.phrase}
         >
           {this.state.justCopied ? 'copied' : 'copy'}
         </button>

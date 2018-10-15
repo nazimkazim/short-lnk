@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import { Meteor } from 'meteor/meteor';
 
 export default class Signup extends React.Component {

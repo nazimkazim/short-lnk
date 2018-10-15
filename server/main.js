@@ -3,6 +3,9 @@ import '../imports/api/users';
 import { WebApp } from 'meteor/webapp';
 
 import { Links } from '../imports/api/links';
+import { Mongo } from 'meteor/mongo';
+
+export const Profiles = new Mongo.Collection('profiles');
 
 Meteor.startup(() => {
   WebApp.connectHandlers.use((req, res, next) => {
@@ -17,5 +20,12 @@ Meteor.startup(() => {
     } else {
       next();
     }
+  });
+
+  Accounts.onCreateUser(function(options, user) {
+    user.profiles = {
+      FirstName: options.profiles.FirstName
+    };
+    return user;
   });
 });

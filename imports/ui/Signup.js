@@ -14,7 +14,7 @@ export default class Signup extends React.Component {
 
     let email = this.refs.email.value.trim();
     let password = this.refs.password.value.trim();
-    let userName = this.refs.userName.value.trim();
+    let FirstName = this.refs.FirstName.value.trim();
 
     if (password.length < 9) {
       return this.setState({
@@ -26,7 +26,9 @@ export default class Signup extends React.Component {
       {
         email,
         password,
-        userName
+        profiles: {
+          FirstName
+        }
       },
       err => {
         if (err) {
@@ -36,10 +38,6 @@ export default class Signup extends React.Component {
         }
       }
     );
-
-    /* this.setState({
-      error: 'Something went wrong'
-    }); */
   }
 
   render() {
@@ -56,8 +54,8 @@ export default class Signup extends React.Component {
             <input type="email" ref="email" name="email" placeholder="Email" />
             <input
               type="text"
-              ref="userName"
-              name="userName"
+              ref="FirstName"
+              name="FirstName"
               placeholder="Name"
             />
             <input
